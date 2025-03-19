@@ -1,5 +1,16 @@
-import { Component, EventEmitter, Input, input, Output } from '@angular/core';
+import { Component, computed, EventEmitter, Input, input, Output, output } from '@angular/core';
 
+/* type User = {
+    id: string;
+    avatar: string;
+    name: string;
+} */
+
+interface User {
+  id: string;
+  avatar: string;
+  name: string;
+}
 
 @Component({
   selector: 'app-user',
@@ -9,24 +20,29 @@ import { Component, EventEmitter, Input, input, Output } from '@angular/core';
   styleUrl: './user.component.css'
 })
 export class UserComponent {
-  @Input({required: true}) id!: string
-  @Input({ required: true }) avatar!: string
-  @Input({ required: true }) name!: string
-  @Output() select = new EventEmitter();
+
+  @Input({required: true}) user!: User ;
+  //@Input({required: true}) id!: string;
+  //@Input({ required: true }) avatar!: string;
+  //@Input({ required: true }) name!: string;
+
+  @Output() select = new EventEmitter(); //can add <string>
+  //select = output<string>(); replaces @Output() select = new EventEmitter; output is still an emitter, not a signal
 
   //avatar = input.required<string>();
   //name = input.required<string>();
 
+  get imagePath() {
+    return 'assets/users/' + this.user.avatar;
+   };
   /* imagePath = computed(() => {
     return 'assets/users/' + this.avatar();
   })
  */
-   get imagePath() {
-    return 'assets/users/' + this.avatar;
-   };
+
 
 
   onSelectUser() {
-    this.select.emit(this.id)
+    this.select.emit(this.user.id)
   }
 }
