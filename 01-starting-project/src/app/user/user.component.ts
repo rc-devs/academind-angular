@@ -12,25 +12,12 @@ import { type User } from './user.model';
 export class UserComponent {
 
   @Input({required: true}) user!: User ;
-  //@Input({required: true}) id!: string;
-  //@Input({ required: true }) avatar!: string;
-  //@Input({ required: true }) name!: string;
-
-  @Output() select = new EventEmitter(); //can add <string>
-  //select = output<string>(); replaces @Output() select = new EventEmitter; output is still an emitter, not a signal
-
-  //avatar = input.required<string>();
-  //name = input.required<string>();
+  @Input({required: true}) selected!: boolean;
+  @Output() select = new EventEmitter();
 
   get imagePath() {
     return 'assets/users/' + this.user.avatar;
    };
-  /* imagePath = computed(() => {
-    return 'assets/users/' + this.avatar();
-  })
- */
-
-
 
   onSelectUser() {
     this.select.emit(this.user.id)
