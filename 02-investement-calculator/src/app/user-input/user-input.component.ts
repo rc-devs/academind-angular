@@ -1,6 +1,7 @@
-import { Component, output, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import type { InvestmentInput } from '../investment-input.model';
+import { InvestmentService } from '../investment.service';
+
 
 @Component({
   selector: 'app-user-input',
@@ -10,14 +11,15 @@ import type { InvestmentInput } from '../investment-input.model';
   styleUrl: './user-input.component.css'
 })
 export class UserInputComponent {
-  calculate = output<InvestmentInput>(); //decorator only needed if using EventEmitter()
   enteredInitialInvestment = signal('0');
   enteredAnnualInvestment = signal('0');
   enteredExpectedReturn = signal('5');
   enteredDuration = signal('10');
 
+  constructor(private investementService: InvestmentService){} //creates a new property with InvestmentService and adds to this. class
+
   onSubmit(){
-    this.calculate.emit({
+    this.investementService.CalculateInvestmentResults({
       initialInvestment: +this.enteredInitialInvestment(),
       duration: +this.enteredDuration(),
       expectedReturn: +this.enteredExpectedReturn(),
