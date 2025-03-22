@@ -1,10 +1,11 @@
-import { Component, Input, NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { CurrencyPipe } from '@angular/common';
+import { Component, Input,  } from '@angular/core';
+
 
 @Component({
   selector: 'app-investment-results',
   standalone: true,
-  imports: [FormsModule],
+  imports: [CurrencyPipe],
   templateUrl: './investment-results.component.html',
   styleUrl: './investment-results.component.css'
 })
