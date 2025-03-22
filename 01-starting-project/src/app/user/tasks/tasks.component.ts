@@ -1,13 +1,13 @@
 import { Component, Input } from '@angular/core';
-import { TaskComponent } from '../../tasks/task/task.component';
-import { AddTaskComponent } from '../../tasks/task/add-task/add-task.component';
-import { type NewTaskData } from '../../tasks/task/task.model';
+//import { TaskComponent } from '../../tasks/task/task.component';
+//import { AddTaskComponent } from '../../tasks/task/add-task/add-task.component';
+//import { type NewTaskData } from '../../tasks/task/task.model';
 import { TasksService } from '../../tasks/task/tasks.services';
 
 @Component({
   selector: 'app-tasks',
-  standalone: true,
-  imports: [TaskComponent,  AddTaskComponent],
+  //standalone: true,
+  //imports: [TaskComponent,  AddTaskComponent],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css'
 })
