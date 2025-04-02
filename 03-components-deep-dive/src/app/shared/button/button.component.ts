@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'button[appButton]', //attribute selection
+  selector: 'button[appButton], a[appButton]', //attribute selection
   standalone: true,
   imports: [],
   templateUrl: './button.component.html',
