@@ -10,7 +10,9 @@ import { Component } from '@angular/core';
 export class ServerStatusComponent {
   currentStatus: 'online' | 'offline' | 'unknown' = 'offline';
 
-  constructor(){
+  constructor(){}
+
+  ngOnInit(){
     setInterval(() => {
       const rnd = Math.random();
       if (rnd < 0.5) {
@@ -22,4 +24,6 @@ export class ServerStatusComponent {
       }
     }, 5000)
   }
+
+
 }
