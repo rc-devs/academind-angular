@@ -14,6 +14,11 @@ export class NewTicketComponent {
   //@ViewChild('form') form?: ElementRef<HTMLFormElement>;
   private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
 
+  ngAfterViewInit(){
+    console.log('AFTER VIEW INIT')
+    console.log(this.form().nativeElement)
+  }
+
   onSubmit(title: string, request: string, ){
 
     console.log(title)
