@@ -13,7 +13,7 @@ import { TasksService } from '../tasks.service';
 export class TasksListComponent {
   private tasksService = inject(TasksService); //request dependency from angular
   selectedFilter = signal<string>('all');
-  tasks = this.tasksService.tasks; //replace empty array with the default from TaskService (this.tasksService) tasks property (.tasks)
+  tasks = this.tasksService.allTasks; //replace empty array with the default from TaskService (this.tasksService) tasks property (.allTasks)
 
   onChangeTasksFilter(filter: string) {
     this.selectedFilter.set(filter);

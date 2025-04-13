@@ -5,7 +5,9 @@ import { Task } from "./task.model";
   providedIn: 'root'
 })
 export class TasksService {
-  tasks = signal<Task[]>([]);
+  private tasks = signal<Task[]>([]); //make data private (this component only)
+
+  allTasks = this.tasks.asReadonly(); //tasks available publicly as readonly
 
   addTask(taskData: {title:string; description: string}){
     const newTask: Task = {
