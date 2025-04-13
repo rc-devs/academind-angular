@@ -12,11 +12,8 @@ import { TasksService } from '../tasks.service';
 export class NewTaskComponent {
   private formEl = viewChild<ElementRef<HTMLFormElement>>('form');
 
-  private tasksService: TasksService;
 
-  constructor(){
-    this.tasksService = new TasksService(); //makes imported service available for component use, but only this component (dependency helps others)
-  }
+  constructor(private tasksService: TasksService){} //requesting the service as a dependency, private within component for use elsewhere
 
   onAddTask(title: string, description: string) {
     this.tasksService.addTask({title, description})
